@@ -32,9 +32,10 @@ class VideoEnhancementPipeline:
             context.working_directory
         )
 
+        outputDirectory = Path("./temp/jobs/20260714_115019/output")
         video_gen_result = self.services.generateVideo.encode_directory(
             input_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
-            output_directory=Path("./temp/jobs/20260714_115019/output/video.mp4"),
+            output_video=outputDirectory / "video.mp4",
             fps=30
         )
 
