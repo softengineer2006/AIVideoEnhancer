@@ -166,13 +166,13 @@ class VideoEnhancementPipeline:
         )
 
         interpol_result = self.services.interpolation.interpolate_directory(
-            input_directory=job.enhanced_frames,
-            output_directory=job.interpolated_frames,
+            input_directory=Path("./temp/jobs/20260714_115019/enhanced_frames"),
+            output_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
             options=RIFEOptions,
         )
         self.logger.info(
 
-            "Enhancement completed using %s",
+            "Frames Interpolation completed using %s",
 
             interpol_result.model,
         )

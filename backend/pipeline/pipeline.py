@@ -32,10 +32,10 @@ class VideoEnhancementPipeline:
             context.working_directory
         )
 
-        interpol_result = self.services.interpolation.interpolate_directory(
-            input_directory=Path("./temp/jobs/20260714_115019/enhanced_frames"),
-            output_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
-            options=RIFEOptions,
+        video_gen_result = self.services.generateVideo.encode_directory(
+            input_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
+            output_directory=Path("./temp/jobs/20260714_115019/output/video.mp4"),
+            fps=30
         )
 
         return PipelineResult(

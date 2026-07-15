@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from backend.audio.audio_manager import AudioManager
+from backend.encoding.video_encoder import VideoEncoder
 from backend.enhancement.enhancement_engine import EnhancementEngine
 from backend.extraction.frame_extractor import FrameExtractor
 from backend.metadata.metadata_extractor import MetadataExtractor
@@ -36,3 +37,5 @@ class MediaServices:
 
             model_directory=Path("./third_party/Practical-RIFE/train_log")
         )
+
+        self.generateVideo = VideoEncoder()

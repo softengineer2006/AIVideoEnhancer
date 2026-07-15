@@ -14,6 +14,21 @@ class FFmpegManager:
         self.ffprobe = shutil.which("ffprobe")
 
         if self.ffmpeg is None:
+            try:
+                import imageio_ffmpeg
+                self.ffmpeg = imageio_ffmpeg.get_ffmpeg_exe()
+            except Exception:
+                pass
+
+        if self.ffprobe is None:
+            try:
+                import static_ffmpeg
+                _, ffprobe_path = static_ffmpeg.run.get_or_fetch_platform_executables_else_raise()
+                self.ffprobe = ffprobe_path
+            except Exception:
+                pass
+
+        if self.ffmpeg is None:
             raise FileNotFoundError("FFmpeg not found in PATH.")
 
         if self.ffprobe is None:
