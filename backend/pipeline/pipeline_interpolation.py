@@ -177,6 +177,19 @@ class VideoEnhancementPipeline:
             interpol_result.model,
         )
 
+        outputDirectory = Path("./temp/jobs/20260714_115019/output")
+        video_gen_result = self.services.generateVideo.encode_directory(
+            input_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
+            output_video=outputDirectory / "video.mp4",
+            fps=30
+        )
+        self.logger.info(
+
+            "Video Reconstructed Successfully using %s",
+
+            interpol_result.model,
+        )
+
         return PipelineResult(
             True,
             "Pipeline completed successfully.",

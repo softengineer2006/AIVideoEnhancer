@@ -32,11 +32,16 @@ class VideoEnhancementPipeline:
             context.working_directory
         )
 
-        outputDirectory = Path("./temp/jobs/20260714_115019/output")
-        video_gen_result = self.services.generateVideo.encode_directory(
-            input_directory=Path("./temp/jobs/20260714_115019/interpolated_frames"),
-            output_video=outputDirectory / "video.mp4",
-            fps=30
+        count = self.services.frames.extract(
+            input_video=Path("./temp/jobs/20260714_115019/input/sample.mp4"),
+            output_directory=Path("./temp/jobs/20260714_115019/frames_en/"),
+            fps=5,
+            image_format="jpg",
+        )
+
+        self.logger.info(
+            "%d frames extracted.",
+            count,
         )
 
         return PipelineResult(
