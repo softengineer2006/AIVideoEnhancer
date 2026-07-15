@@ -1,0 +1,36 @@
+application:
+  name: AI Video Enhancement Framework
+  version: 0.1.0
+
+device:
+  mode: auto
+
+video:
+  extract_fps: original
+  image_format: jpg
+
+preprocessing:
+  downscale: 1.0
+  compression_quality: 95
+
+super_resolution:
+  enabled: true
+  model: RealESRGAN_x4plus
+
+interpolation:
+  enabled: true
+  model: rife
+
+encoding:
+  codec: h265
+  crf: 18
+  preset: medium
+
+logging:
+  level: INFO
+
+paths:
+  temp: temp
+  output: output
+  models: models
+  logs: logs

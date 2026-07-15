@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual Environment
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+logs/*.log
+
+# Temporary files
+temp/
+*.tmp
+
+# Output
+output/
+
+# Models (optional)
+# models/
+
+# Python cache
+.pytest_cache/
+
+# Notebook
+.ipynb_checkpoints/
+
+# Windows
+Thumbs.db
+Desktop.ini
